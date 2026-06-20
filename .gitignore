@@ -54,3 +54,5 @@ outputs/
 # Logs
 # =========================
 *.log
+
+data/processed/candidate_summaries.jsonl
