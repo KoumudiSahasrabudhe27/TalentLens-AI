@@ -1,18 +1,12 @@
-# TalentLens AI
+# TalentLens-AI
 
-### Explainable Talent Intelligence Platform
+## Explainable Talent Intelligence Platform for Semantic Candidate Discovery
 
-TalentLens AI is an intelligent candidate discovery and ranking engine developed for the **Redrob x Hack2Skill India.Runs Challenge**.
+TalentLens-AI is an end-to-end AI-powered candidate discovery and ranking platform developed for the **Redrob × Hack2Skill India.Runs Datathon Arena**.
 
-Traditional recruitment systems rely heavily on keyword matching, causing organizations to overlook highly capable candidates with transferable skills, strong career trajectories, and proven real-world experience.
+Traditional Applicant Tracking Systems (ATS) rely heavily on keyword matching, often overlooking highly qualified candidates whose experience, skills, and career trajectories indicate strong potential despite limited keyword overlap.
 
-TalentLens AI addresses this problem through a hybrid ranking architecture that combines:
-
-* Semantic candidate-job matching
-* Behavioral hiring signals
-* Recruiter engagement indicators
-* Candidate availability analysis
-* Explainable AI reasoning
+TalentLens-AI addresses this challenge through a hybrid AI ranking architecture that combines semantic search, behavioral hiring signals, candidate availability indicators, and explainable AI reasoning to identify the strongest candidates from large-scale talent datasets.
 
 ---
 
@@ -21,18 +15,49 @@ TalentLens AI addresses this problem through a hybrid ranking architecture that 
 Given:
 
 * A Job Description (JD)
-* A dataset of 100,000 candidate profiles
+* A dataset containing 100,000 candidate profiles
 
-Identify and rank the top 100 candidates most likely to succeed in the target role.
+Build an intelligent ranking system capable of identifying and recommending the most relevant candidates while providing transparent explanations for every recommendation.
 
-The system goes beyond keyword matching by understanding:
+The system should go beyond traditional keyword matching and understand:
 
-* Career history
+* Career progression
 * Skill relevance
-* Product vs service experience
+* Semantic similarity
 * Retrieval and ranking expertise
-* Behavioral engagement signals
+* Recruiter engagement signals
 * Hiring readiness
+* Candidate availability
+
+---
+
+## Solution Overview
+
+TalentLens-AI processes candidate profiles through a multi-stage retrieval and ranking pipeline:
+
+```text
+100,000 Candidate Profiles
+            ↓
+     Feature Extraction
+            ↓
+  Talent & Domain Scoring
+            ↓
+    Top 5,000 Candidates
+            ↓
+   Embedding Generation
+            ↓
+      FAISS Retrieval
+            ↓
+    Semantic Candidate Search
+            ↓
+      Hybrid Ranking
+            ↓
+   Explainable AI Layer
+            ↓
+ Top Candidate Recommendations
+```
+
+This architecture dramatically reduces the search space while maintaining candidate quality and ranking accuracy.
 
 ---
 
@@ -40,41 +65,53 @@ The system goes beyond keyword matching by understanding:
 
 ### Semantic Candidate Matching
 
-Uses transformer embeddings to understand candidate relevance beyond exact keyword overlap.
+Uses transformer-based embeddings and vector similarity search to identify relevant candidates beyond exact keyword overlap.
 
 ### Hybrid Ranking Engine
 
-Combines technical fit, behavioral signals, recruiter engagement, and candidate availability into a unified ranking score.
+Combines:
+
+* Domain Fit Score
+* Talent Score
+* Availability Score
+* Semantic Similarity
+
+to generate a unified candidate ranking score.
 
 ### Explainable AI
 
-Generates recruiter-friendly reasoning for every ranked candidate, highlighting strengths, concerns, and alignment with job requirements.
+Every recommendation includes recruiter-friendly explanations highlighting:
+
+* Skill alignment
+* Relevant experience
+* Hiring readiness
+* Potential risks
+* Match confidence
+
+### Recruiter Dashboard
+
+Interactive React dashboard featuring:
+
+* Job Description upload
+* Candidate discovery
+* Confidence scoring
+* Hiring risk indicators
+* AI recruiter insights
+* Candidate profile drawer
+* Architecture visualization
 
 ### Hidden Talent Discovery
 
-Identifies high-potential candidates who may not explicitly match all keywords but demonstrate strong adjacent experience and career signals.
+Identifies candidates with adjacent skills and transferable experience who may be overlooked by traditional ATS systems.
 
-### Honeypot Detection
+### Hiring Risk Analysis
 
-Detects inconsistent or unrealistic candidate profiles using credibility and profile-quality checks.
+Flags potential concerns such as:
 
----
-
-## Architecture
-
-Job Description
-↓
-Feature Extraction
-↓
-Semantic Retrieval
-↓
-Behavioral Signal Analysis
-↓
-Hybrid Ranking Engine
-↓
-Explainability Layer
-↓
-Top-100 Candidate Recommendations
+* Long notice periods
+* Low recruiter response rates
+* Low interview completion rates
+* Availability issues
 
 ---
 
@@ -85,10 +122,10 @@ Top-100 Candidate Recommendations
 * Python
 * FastAPI
 
-### AI / ML
+### Machine Learning & Retrieval
 
-* Sentence Transformers
-* FAISS
+* Sentence Transformers (all-MiniLM-L6-v2)
+* FAISS Vector Search
 * Scikit-learn
 
 ### Data Processing
@@ -99,26 +136,124 @@ Top-100 Candidate Recommendations
 ### Frontend
 
 * React
-* TypeScript
-* Tailwind CSS
+* Vite
+* JavaScript
+* CSS
+
+### AI Techniques
+
+* Semantic Search
+* Embedding Generation
+* Vector Retrieval
+* Hybrid Ranking
+* Explainable AI
 
 ---
 
-## Repository Structure
+## Dataset Statistics
 
-See project folders for ingestion, feature engineering, retrieval, ranking, reasoning, and evaluation pipelines.
+| Metric                       | Value   |
+| ---------------------------- | ------- |
+| Total Candidates             | 100,000 |
+| Candidates After Pre-Ranking | 5,000   |
+| Semantic Matches Retrieved   | 100     |
+| Final Ranked Candidates      | 20      |
+| Embedding Dimension          | 384     |
+| Vector Database              | FAISS   |
+
+---
+
+## Candidate Ranking Formula
+
+### Talent Score
+
+Combines:
+
+* Recruiter response rate
+* Interview completion rate
+* Open-to-work signals
+* Notice period
+* GitHub activity
+
+### Domain Fit Score
+
+Evaluates:
+
+* Job title relevance
+* Technical skills
+* Career history
+* Experience alignment
+
+### Final Hybrid Score
+
+```text
+Final Score =
+(0.40 × Semantic Similarity)
++
+(0.35 × Domain Fit Score)
++
+(0.25 × Talent Score)
+```
+
+---
+
+## Project Structure
+
+```text
+TalentLens-AI
+│
+├── backend/
+├── frontend/
+├── src/
+│   ├── ingestion/
+│   ├── features/
+│   ├── embeddings/
+│   ├── ranking/
+│   ├── reasoning/
+│   └── utils/
+│
+├── docs/
+├── data/
+├── outputs/
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## Future Enhancements
+
+* Real-time Job Description parsing
+* LLM-based reranking
+* Recruiter feedback learning loop
+* Multi-role search optimization
+* Resume upload and parsing
+* Advanced hiring analytics
+* Cloud deployment
 
 ---
 
 ## Challenge
 
-Redrob x Hack2Skill — India.Runs Datathon Arena
+**Redrob × Hack2Skill — India.Runs Datathon Arena**
 
-Focus:
-Building an Explainable Intelligent Candidate Discovery & Ranking Engine capable of ranking large-scale candidate datasets under strict CPU-only constraints.
+Objective:
+
+Build an Explainable Intelligent Candidate Discovery and Ranking Engine capable of identifying the strongest candidates from large-scale datasets under practical resource constraints.
 
 ---
 
-## Authors
+## Author
 
-Koumudi Sahasrabudhe
+**Koumudi Sahasrabudhe**
+
+Electronics & Telecommunication Engineering
+Mastercard SDE Intern → PPO
+
+GitHub: https://github.com/KoumudiSahasrabudhe27
+
+---
+
+## License
+
+This project was developed for the Redrob × Hack2Skill India.Runs Challenge and is intended for educational and demonstration purposes.
